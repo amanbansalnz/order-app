@@ -10,12 +10,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>org.demo.Application</start-class>
+        <start-class>org.order.Application</start-class>
         <java.version>11</java.version>
         <jackson.version>2.9.5</jackson.version>
         <springdoc.version>1.4.6</springdoc.version>
         <docker.server.tag>org.demo/${project.artifactId}:${project.version}</docker.server.tag>
-        <clm.applicationId>org.demo</clm.applicationId>
+        <clm.applicationId>org.order</clm.applicationId>
         <powermock.version>2.0.9</powermock.version>
         <jacoco.version>0.8.6</jacoco.version>
 <!--        <liquibase.changeLogFile>src/main/resources/database/schema.xml</liquibase.changeLogFile>-->
@@ -356,7 +356,7 @@
                             <images>
                                 <image>
                                     <name>${docker.server.tag}</name>
-                                    <registry>org.demo</registry>
+                                    <registry>org.order</registry>
                                     <build>
                                         <dockerFileDir>.</dockerFileDir>
                                         <tags>
