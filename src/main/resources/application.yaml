@@ -1,0 +1,28 @@
+server:
+  port: 9001
+  forward-headers-strategy: framework
+
+logging:
+  pattern:
+    console: "%-30(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{32} - %msg%n"
+
+springdoc:
+  use-fqn: true
+  api-docs:
+    enabled: true
+    path: /api-docs
+
+spring:
+  datasource:
+    password: Password1
+    username: bingo
+    driverClassName: com.ibm.db2.jcc.DB2Driver
+    url: jdbc:db2://localhost:10000/HY
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DB2Dialect
+
+
+serverVersion: @project.version@
+serverName: @project.name@
