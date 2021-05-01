@@ -3,9 +3,9 @@ package org.order.web.model.response;
 import lombok.Data;
 import org.order.core.model.Item;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
 public class ItemsResponse {
-    Map<String, Item> items;
+    List<Item> items;
 }

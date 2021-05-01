@@ -28,7 +28,7 @@ public class ItemController {
 
         log.info("ItemController get items");
 
-        Map<String, Item> items = itemService.getItems();
+        List<Item> items = itemService.getItems();
         ItemsResponse itemsResponse = new ItemsResponse();
         itemsResponse.setItems(items);
 
@@ -43,7 +43,7 @@ public class ItemController {
 
         log.info("ItemController add Item");
 
-        Map<String, Item> items = itemService.addItems(itemRequest.getItems());
+        List<Item> items = itemService.addItems(itemRequest.getItems());
 
         ItemsResponse itemsResponse = new ItemsResponse();
         itemsResponse.setItems(items);

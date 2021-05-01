@@ -17,7 +17,7 @@ public class SpringFoxConfig {
     public OpenAPI customOpenAPI(@Value("${serverVersion}") String appVersion, @Value("${serverName}") String serverName) {
 
         Server server3 = new Server();
-        server3.setUrl("http://localhost:9000");
+        server3.setUrl("http://localhost:9001");
 
         List<Server> servers = new ArrayList<>();
         servers.add(server3);

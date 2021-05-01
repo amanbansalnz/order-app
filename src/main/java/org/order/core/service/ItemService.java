@@ -23,11 +23,14 @@ public class ItemService {
         addInitialItems();
     }
 
-    public Map<String, Item> getItems() {
-        return itemMap;
+    public List<Item> getItems() {
+        return new ArrayList<>(itemMap.values());
     }
 
-    public Map<String, Item> addItems(List<NewItem> newItems) {
+    public Map<String, Item> getItemsMap() {
+        return itemMap;
+    }
+    public List<Item> addItems(List<NewItem> newItems) {
 
         for (NewItem newItem : newItems){
             Item item = new Item();
@@ -38,7 +41,7 @@ public class ItemService {
             item.setBarcode(barcode);
             itemMap.put(barcode, item);
         }
-        return itemMap;
+        return getItems();
     }
 
     public void itemsAvailbleForPuchase(String barcode) {

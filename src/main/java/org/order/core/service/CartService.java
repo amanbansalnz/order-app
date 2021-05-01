@@ -27,7 +27,7 @@ public class CartService {
         MemberDetails memberDetails = authenticationService.validateIsLoggedIn(token);
         List<Item> itemsInCart = memberDetails.getItemsInCart();
 
-        itemsInCart.add(itemService.getItems().get(barcode));
+        itemsInCart.add(itemService.getItemsMap().get(barcode));
 
         return itemsInCart;
     }

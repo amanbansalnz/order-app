@@ -3,7 +3,6 @@ package org.order.web.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.order.core.model.Order;
 import org.order.core.service.OrderService;
-import org.order.web.model.request.OrderRequest;
 import org.order.web.model.response.OrderResponse;
 import org.order.web.model.response.OrdersResponse;
 import org.springframework.beans.factory.annotation.Autowired;
