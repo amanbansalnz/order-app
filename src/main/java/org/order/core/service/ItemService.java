@@ -1,9 +1,11 @@
 package org.order.core.service;
 
 import org.order.core.model.Item;
+import org.order.core.model.MemberDetails;
 import org.order.core.model.NewItem;
 import org.order.util.HelperUtil;
 import org.order.web.error.ApplicationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,6 +14,9 @@ import java.util.*;
 public class ItemService {
 
     private Map<String, Item> itemMap;
+
+    @Autowired
+    private AuthenticationService authenticationService;
 
     public ItemService(){
         itemMap = new HashMap<>();
@@ -36,14 +41,14 @@ public class ItemService {
         return itemMap;
     }
 
-    public boolean itemsAvailbleForPuchase(List<String> barcodes) {
-
-        for (String barcode : barcodes){
-           if(!itemMap.containsKey(barcode)){
-               throw new ApplicationException(500, "One or more items are not aviable for purchas");
-           }
+    public void itemsAvailbleForPuchase(String barcode) {
+        if(!itemMap.containsKey(barcode)){
+            throw new ApplicationException(500, "Item does not exist to purchase");
         }
-        return true;
+        Item item = itemMap.get(barcode);
+        if(!item.isAvailable()){
+            throw new ApplicationException(500, "this item is not aviable for purchas");
+        }
     }
 
 
@@ -61,4 +66,4 @@ public class ItemService {
         }
     }
 
-}
+  }

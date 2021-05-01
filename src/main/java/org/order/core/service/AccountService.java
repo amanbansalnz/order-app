@@ -1,10 +1,13 @@
 package org.order.core.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.order.core.model.Item;
 import org.order.core.model.MemberDetails;
+import org.order.core.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +30,8 @@ public class AccountService {
         MemberDetails memberDetails = null;
         String token = generateHash(memberName+password);
         if(!memberDetailMap.containsKey(token)){
-            memberDetails =  new MemberDetails(memberName, password, phoneNumber, email);
+
+            memberDetails =  new MemberDetails(memberName, password, phoneNumber, email, new ArrayList<>(), new ArrayList<>());
             memberDetailMap.put(token, memberDetails);
         }else{
             log.info("Member already registered {}", memberName);

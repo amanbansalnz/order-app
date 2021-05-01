@@ -6,6 +6,6 @@ import org.order.core.model.Order;
 import java.util.List;
 
 @Data
-public class OrderResponse {
-    private Order order;
+public class OrdersResponse {
+    private List<Order> orders;
 }
