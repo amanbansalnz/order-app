@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.order.core.model.Item;
 import org.order.core.model.MemberDetails;
 import org.order.core.model.Order;
+import org.order.web.error.InvalidRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,7 @@ public class AccountService {
             memberDetailMap.put(token, memberDetails);
         }else{
             log.info("Member already registered {}", memberName);
+            throw new InvalidRequestException(400, "Invalid request member already exits");
         }
 
         return memberDetails;

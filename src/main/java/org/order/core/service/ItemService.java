@@ -50,7 +50,7 @@ public class ItemService {
         }
         Item item = itemMap.get(barcode);
         if(!item.isAvailable()){
-            throw new ApplicationException(500, "this item is not aviable for purchas");
+            throw new ApplicationException(500, "this item is not available for purchase");
         }
     }
 

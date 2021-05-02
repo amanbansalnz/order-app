@@ -36,14 +36,14 @@ public class AuthenticationController {
 
     @PostMapping("/logout")
     @ResponseStatus(HttpStatus.OK)
-    public void logout(@RequestBody LogoutRequest logoutRequest) {
+    public void logout(@RequestHeader(name = "token") String token) {
 
         log.info("AuthenticationController login");
 
-        if(logoutRequest.getToken() == null){
+        if(token == null){
             throw new InvalidRequestException(400, "Bad Request");
         }
-        authethicationService.logout(logoutRequest.getToken());
+        authethicationService.logout(token);
 
         log.info("AuthenticationController login response");
     }
